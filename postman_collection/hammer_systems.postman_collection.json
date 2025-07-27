@@ -1,0 +1,585 @@
+{
+	"info": {
+		"_postman_id": "3488813e-3761-48be-89a6-d8e0796577a6",
+		"name": "hammer_systems",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40073554"
+	},
+	"item": [
+		{
+			"name": "get_confirmation_code",
+			"item": [
+				{
+					"name": "get_confirmation_code_for_first_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"if (responseData && responseData.confirmation_code !== undefined) {\r",
+									"    const conf_code_1 = responseData.confirmation_code;\r",
+									"    pm.collectionVariables.set(\"conf_code_1\", conf_code_1);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": {{phone1}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/request_code/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"request_code",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_confirmation_code_for_second_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"if (responseData && responseData.confirmation_code !== undefined) {\r",
+									"    const conf_code_2 = responseData.confirmation_code;\r",
+									"    pm.collectionVariables.set(\"conf_code_2\", conf_code_2);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": {{phone2}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/request_code/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"request_code",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_confirmation_code_for_third_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"if (responseData && responseData.confirmation_code !== undefined) {\r",
+									"    const conf_code_3 = responseData.confirmation_code;\r",
+									"    pm.collectionVariables.set(\"conf_code_3\", conf_code_3);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": {{phone3}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/request_code/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"request_code",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get_token",
+			"item": [
+				{
+					"name": "get_token_for_first_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"if (responseData && responseData.token !== undefined) {\r",
+									"    const token_1 = responseData.token;\r",
+									"    pm.collectionVariables.set(\"token_1\", token_1);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": {{phone1}},\r\n    \"confirmation_code\": {{conf_code_1}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/auth_code/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"auth_code",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_token_for_second_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"if (responseData && responseData.token !== undefined) {\r",
+									"    const token_2 = responseData.token;\r",
+									"    pm.collectionVariables.set(\"token_2\", token_2);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": {{phone2}},\r\n    \"confirmation_code\": {{conf_code_2}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/auth_code/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"auth_code",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_token_for_third_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"if (responseData && responseData.token !== undefined) {\r",
+									"    const token_3 = responseData.token;\r",
+									"    pm.collectionVariables.set(\"token_3\", token_3);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": {{phone3}},\r\n    \"confirmation_code\": {{conf_code_3}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/auth_code/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"auth_code",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profile_and_invite",
+			"item": [
+				{
+					"name": "get_third_profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"if (responseData && responseData.invite_code !== undefined) {\r",
+									"    const invite_code = responseData.invite_code;\r",
+									"    pm.collectionVariables.set(\"invite_code_3\", invite_code);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_3}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/profile/me/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"profile",
+								"me",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inviting_first_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"invite_code\": \"{{invite_code_3}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/profile/activate_invite/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"profile",
+								"activate_invite",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inviting_second_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_2}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"invite_code\": \"{{invite_code_3}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/profile/activate_invite/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"profile",
+								"activate_invite",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_third_profile_with_invited_users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_3}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/profile/me/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"profile",
+								"me",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "phone1",
+			"value": "\"+79123456789\"",
+			"type": "string"
+		},
+		{
+			"key": "phone2",
+			"value": "\"+79123211232\"",
+			"type": "string"
+		},
+		{
+			"key": "phone3",
+			"value": "\"+79176665544\"",
+			"type": "string"
+		},
+		{
+			"key": "conf_code_1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "conf_code_2",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "conf_code_3",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "token_1",
+			"value": ""
+		},
+		{
+			"key": "invite_code_3",
+			"value": ""
+		},
+		{
+			"key": "token_2",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "token_3",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
